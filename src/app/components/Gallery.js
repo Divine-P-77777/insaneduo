@@ -9,15 +9,18 @@ const Gallery = () => {
         { src: "/memories/m5.jpg", caption: "Artistic Expression" },
         { src: "/memories/m7.jpg", caption: "Radha & Krishna Act" },
         { src: "/memories/m11.jpg", caption: "India's Got Talent" },
+
         { src: "/memories/m2.jpg", caption: "Grace in Motion" },
         { src: "/memories/m3.jpg", caption: "Aerial Duo Straps" },
         { src: "/memories/m6.jpg", caption: "Indonesia's Got Talent" },
         { src: "/memories/m1.jpg", caption: "Glob Act" },
-        { src: "/memories/m10.jpg", caption: "Elevated Performance" },
+
         { src: "/memories/m4.jpg", caption: "Performance Moment" },
+        { src: "/memories/m15.jpg", caption: "India's Got Talent" },
+        { src: "/memories/m12.jpg", caption: "India's Got Talent" },
+        { src: "/memories/m13.jpg", caption: "India's Got Talent S 11" },
 
 
-        // { src: "/memories/m12.jpg", caption: "Live Action" },
     ];
 
     useEffect(() => {

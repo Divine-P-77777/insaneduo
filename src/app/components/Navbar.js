@@ -8,6 +8,7 @@ import clsx from "clsx";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,10 +33,10 @@ const Navbar = () => {
     { name: "Home", link: "home" },
     {
       name: "More",
-      link: "about",
+      link: "more",
       dropdown: [
         { name: "Who We Are", link: "about" },
-        { name: "Performances", link: "achievements" },
+        { name: "Performances", link: "/performance" },
         { name: "Tour", link: "/tour" },
         { name: "Events Archive", link: "gallery" },
       ],
@@ -161,34 +162,53 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div
         className={clsx(
-          "md:hidden fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-all duration-500",
+          "md:hidden fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-opacity duration-300",
           toggle
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         )}
       >
         <button
-          className="absolute top-8 right-8"
+          className="absolute top-8 right-8 z-50 p-2"
           onClick={() => setToggle(false)}
         >
           <svg className="w-8 h-8 text-white hover:text-purple-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        <ul className="flex flex-col gap-6 text-center max-h-[80vh] overflow-y-auto w-full px-6">
+        <div className="flex flex-col gap-6 text-center max-h-[85vh] overflow-y-auto w-full px-6 py-10">
           {navLinks.map((item) => (
-            <li key={item.link} className="w-full">
+            <div key={item.link} className="w-full">
               {item.dropdown ? (
                 <div className="flex flex-col items-center gap-2">
-                  <span className="text-2xl font-cinzel text-white/50 mb-2">{item.name}</span>
-                  <div className="flex flex-col gap-3 w-full items-center bg-white/5 rounded-xl p-4 border border-white/5">
+                  <button
+                    onClick={() => setMobileDropdownOpen(mobileDropdownOpen === item.link ? null : item.link)}
+                    className="flex items-center justify-center gap-2 text-2xl font-cinzel text-white/90 hover:text-purple-400 transition-colors"
+                  >
+                    {item.name}
+                    <svg
+                      className={clsx("w-5 h-5 transition-transform duration-300", mobileDropdownOpen === item.link ? "rotate-180" : "")}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  <div
+                    className={clsx(
+                      "flex flex-col gap-3 w-full items-center overflow-hidden transition-all duration-300 ease-in-out",
+                      mobileDropdownOpen === item.link ? "max-h-[500px] opacity-100 mt-2 p-4 bg-white/5 rounded-xl border border-white/5" : "max-h-0 opacity-0"
+                    )}
+                  >
                     {item.dropdown.map((subItem) => {
                       if (subItem.link.startsWith("/")) {
                         return (
                           <Link
                             key={subItem.link}
                             href={subItem.link}
-                            className="text-lg font-outfit text-purple-300 hover:text-white cursor-pointer"
+                            className="text-lg font-outfit text-purple-300 hover:text-white cursor-pointer py-1"
                             onClick={() => setToggle(false)}
                           >
                             {subItem.name}
@@ -201,7 +221,7 @@ const Navbar = () => {
                           to={subItem.link}
                           smooth
                           duration={1000}
-                          className="text-lg font-outfit text-purple-300 hover:text-white cursor-pointer"
+                          className="text-lg font-outfit text-purple-300 hover:text-white cursor-pointer py-1"
                           onClick={() => setToggle(false)}
                         >
                           {subItem.name}
@@ -215,15 +235,15 @@ const Navbar = () => {
                   to={item.link}
                   smooth
                   duration={1000}
-                  className="text-2xl font-cinzel text-white hover:text-purple-400 cursor-pointer block"
+                  className="text-2xl font-cinzel text-white hover:text-purple-400 cursor-pointer block py-2"
                   onClick={() => setToggle(false)}
                 >
                   {item.name}
                 </ScrollLink>
               )}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </nav>
   );

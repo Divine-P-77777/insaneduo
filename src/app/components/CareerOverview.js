@@ -75,7 +75,7 @@ export default function CareerOverview() {
             className="absolute top-0 right-10 w-[60%] h-[80%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-10"
           >
             <img
-              src="/wallpaperdark/artist.jpg"
+              src="/memories/m14.jpg"
               alt="Aerial Performance"
               className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
             />
@@ -103,9 +103,9 @@ export default function CareerOverview() {
             className="absolute bottom-0 left-20 w-[50%] h-[45%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-0"
           >
             <img
-              src="/wallpaperdark/artist2.jpg"
+              src="/memories/m10.jpg"
               alt="Acrobatics"
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+              className="w-full h-full scale-x-[-1] object-cover hover:scale-110 transition-transform duration-700"
             />
           </motion.div>
         </div>

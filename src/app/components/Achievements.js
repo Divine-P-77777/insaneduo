@@ -40,7 +40,7 @@ export default function Achievements() {
           {[
             {
               title: "India's Got Talent Season 11",
-              desc: "Top 6 Finalist | Reached the Grand Finale, captivating the nation with aerial excellence.",
+              desc: "Finalist | Reached the Grand Finale, captivating the nation with aerial excellence.",
               icon: "🏆"
             },
             {

@@ -18,12 +18,7 @@ const slides = [
     subtitle: "Insane Duo",
     slogan: "When fear lets go, we fly.",
   },
-  {
-    image: "/",
-    title: "Passion Unleashed",
-    subtitle: "Every Move Stories",
-    slogan: "Future Vision, Aerial Edition",
-  },
+
   {
     image: "/wallpaperdark/artist2.jpg",
     title: "World  1st Aerial Quick-Change",
