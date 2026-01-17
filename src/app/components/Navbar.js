@@ -58,7 +58,7 @@ const Navbar = () => {
       )}
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto">
-        {/* Logo */}
+
         {isHomePage ? (
           <ScrollLink
             to="home"
