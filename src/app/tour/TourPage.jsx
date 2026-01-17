@@ -4,22 +4,59 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+// --- DATA: LOCATIONS & CONNECTIONS ---
+// Coordinate System (Approximate % for visual layout):
+// Center-Right: India Region. Left: Middle East/Europe. Far Right: SE Asia.
 const locations = [
-    { name: "India", x: "70%", y: "45%" },
-    { name: "Indonesia", x: "80%", y: "60%" },
-    { name: "Brazil", x: "32%", y: "65%" },
-    { name: "Afghanistan", x: "65%", y: "38%" },
-    // Adding more for visual density
-    { name: "Dubai", x: "60%", y: "42%" },
-    { name: "France", x: "48%", y: "30%" },
+    // 0: Start - Assam
+    { name: "Guwahati", x: "75%", y: "45%", color: "#ec4899" },
+    // 1-9: India Tour (Spread out)
+    { name: "Kolkata", x: "70%", y: "52%", color: "#a855f7" },
+    { name: "Raipur", x: "65%", y: "56%", color: "#a855f7" },
+    { name: "Gaziabad", x: "60%", y: "38%", color: "#a855f7" },
+    { name: "Delhi", x: "58%", y: "40%", color: "#a855f7" },
+    { name: "Jaipur", x: "53%", y: "42%", color: "#a855f7" },
+    { name: "Gujarat", x: "48%", y: "50%", color: "#a855f7" },
+    { name: "Mumbai", x: "50%", y: "58%", color: "#a855f7" },
+    { name: "Goa", x: "52%", y: "66%", color: "#a855f7" },
+    { name: "Bangalore", x: "58%", y: "72%", color: "#a855f7" },
+    { name: "Kerala", x: "56%", y: "78%", color: "#a855f7" },
+
+    // 11-14: International (Wider reach)
+    { name: "Dubai", x: "35%", y: "45%", color: "#fbbf24" }, // Gold
+    { name: "Uzbekistan", x: "38%", y: "25%", color: "#fbbf24" },
+    { name: "Poland", x: "15%", y: "20%", color: "#fbbf24" },
+    { name: "Indonesia", x: "90%", y: "75%", color: "#fbbf24" },
 ];
 
 const connections = [
-    { from: 0, to: 1 }, // India -> Indonesia
-    { from: 0, to: 3 }, // India -> Afghanistan
-    { from: 0, to: 4 }, // India -> Dubai
-    { from: 4, to: 2 }, // Dubai -> Brazil
-    { from: 4, to: 5 }, // Dubai -> France
+    // The Journey: Assam -> India
+    { from: 0, to: 1 }, // Guwahati -> Kolkata
+    { from: 1, to: 2 }, // Kolkata -> Raipur
+    { from: 2, to: 4 }, // Raipur -> Delhi
+    { from: 4, to: 3 }, // Delhi -> Gaziabad (Close)
+    { from: 4, to: 5 }, // Delhi -> Jaipur
+    { from: 5, to: 6 }, // Jaipur -> Gujarat
+    { from: 6, to: 7 }, // Gujarat -> Mumbai
+    { from: 7, to: 8 }, // Mumbai -> Goa
+    { from: 8, to: 9 }, // Goa -> Bangalore
+    { from: 9, to: 10 }, // Bangalore -> Kerala
+
+    // International Connections
+    { from: 7, to: 11 }, // Mumbai -> Dubai (Gateway)
+    { from: 4, to: 11 }, // Delhi -> Dubai (Alt Gateway)
+    { from: 11, to: 12 }, // Dubai -> Uzbekistan
+    { from: 12, to: 13 }, // Uzbekistan -> Poland
+    { from: 1, to: 14 }, // Kolkata -> Indonesia (Eastward)
+];
+
+const domesticCities = [
+    "Mumbai", "Delhi", "Jaipur", "Kolkata", "Guwahati", "Kerala", "Bangalore",
+    "Raipur", "Gaziabad", "Goa", "Gujarat"
+];
+
+const internationalNations = [
+    "Indonesia", "Uzbekistan", "Dubai", "Poland"
 ];
 
 const TourPage = () => {
@@ -34,13 +71,12 @@ const TourPage = () => {
 
                 {/* Simplified World Map (CSS/SVG) */}
                 <div className="absolute inset-0 w-full h-full opacity-30 select-none pointer-events-none">
-                    {/* A stylized dot grid or abstract map could go here. For now, using a placeholder text or simple SVG dots for "World" */}
                     <div className="absolute inset-0 flex items-center justify-center text-[10vw] font-bold text-white/5 tracking-widest uppercase">
                         World Tour
                     </div>
                 </div>
 
-                {/* CONNECTION NETWORK (The "Canvas" equivalent using SVG) */}
+                {/* CONNECTION NETWORK */}
                 <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none">
                     {connections.map((conn, i) => {
                         const start = locations[conn.from];
@@ -56,15 +92,16 @@ const TourPage = () => {
                                 strokeWidth="2"
                                 strokeLinecap="round"
                                 initial={{ pathLength: 0, opacity: 0 }}
-                                animate={{ pathLength: 1, opacity: 0.5 }}
-                                transition={{ duration: 2, delay: i * 0.5, ease: "easeInOut" }}
+                                animate={{ pathLength: 1, opacity: 0.3 }}
+                                transition={{ duration: 2.5, delay: i * 0.15, ease: "easeInOut" }}
                             />
                         );
                     })}
                     <defs>
                         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#a855f7" />
-                            <stop offset="100%" stopColor="#ec4899" />
+                            <stop offset="0%" stopColor="#ec4899" />
+                            <stop offset="50%" stopColor="#a855f7" />
+                            <stop offset="100%" stopColor="#fbbf24" />
                         </linearGradient>
                     </defs>
                 </svg>
@@ -78,36 +115,39 @@ const TourPage = () => {
                             style={{ left: loc.x, top: loc.y }}
                             initial={{ scale: 0, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 1 + i * 0.2, type: "spring" }}
+                            transition={{ delay: 0.5 + i * 0.1, type: "spring" }}
                         >
-                            <div className="relative">
-                                <div className="absolute -inset-2 bg-purple-500/50 rounded-full blur-md animate-pulse" />
-                                <div className="w-3 h-3 bg-white rounded-full border-2 border-purple-500 shadow-[0_0_10px_#a855f7]" />
-                                <span className="absolute top-4 left-1/2 -translate-x-1/2 text-xs text-purple-200 tracking-wider font-bold">
+                            <div className="relative group cursor-pointer">
+                                {/* Pulse Effect */}
+                                <div className={`absolute -inset-2 rounded-full blur-md animate-pulse opacity-70`} style={{ backgroundColor: loc.color }} />
+                                {/* Pin Head */}
+                                <div className={`w-3 h-3 bg-white rounded-full border-2 shadow-[0_0_10px_currentColor]`} style={{ borderColor: loc.color, color: loc.color }} />
+                                {/* Label */}
+                                <span className="absolute top-4 left-1/2 -translate-x-1/2 text-[10px] md:text-xs tracking-wider font-bold opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-30" style={{ color: loc.color }}>
                                     {loc.name}
                                 </span>
                             </div>
                         </motion.div>
                     ))}
                 </div>
+            </section>
 
-                <div className="absolute bottom-1 left-0 right-0 z-30 text-center px-6">
-                    <motion.h1
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1 }}
-                        className="text-5xl md:text-8xl font-cinzel font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-300 to-white drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]"
+            {/* --- MARQUEE: Cities List --- */}
+            <section className="bg-purple-950/20 py-4 overflow-hidden border-y border-white/5 relative z-40 backdrop-blur-sm">
+                <div className="flex whitespace-nowrap">
+                    <motion.div
+                        className="flex gap-12 items-center"
+                        animate={{ x: "-50%" }}
+                        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                     >
-                        GLOBAL CONNECTIONS
-                    </motion.h1>
-                    <motion.p
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.3 }}
-                        className="text-lg md:text-2xl text-purple-200/80 font-light tracking-widest uppercase"
-                    >
-                        Uniting Cultures Through Aerial Art
-                    </motion.p>
+                        {/* Repeat specific list to ensure smooth loop */}
+                        {[...domesticCities, ...internationalNations, ...domesticCities, ...internationalNations].map((item, i) => (
+                            <div key={i} className="flex items-center gap-4 text-white/40 text-lg uppercase tracking-widest font-outfit">
+                                <span className={internationalNations.includes(item) ? "text-yellow-400/80 font-bold" : ""}>{item}</span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-purple-500/50" />
+                            </div>
+                        ))}
+                    </motion.div>
                 </div>
             </section>
 
@@ -127,26 +167,33 @@ const TourPage = () => {
                             align: "left"
                         },
                         {
-                            country: "BRAZIL",
-                            title: "Samba & Sky",
-                            desc: "Merging the rhythm of Brazil with the grace of aerial acrobatics. A cultural fusion that pushed our physical limits and artistic expression.",
-                            gradient: "from-green-400 to-teal-500", // Brazilian vibe
+                            country: "UZBEKISTAN",
+                            title: "Central Asian Rhythm",
+                            desc: "Exploring the historic crossroads of culture. Our performance blended traditional storytelling with modern aerial artistry in the heart of the Silk Road.",
+                            gradient: "from-blue-400 to-cyan-500",
+                            align: "right"
+                        },
+                        {
+                            country: "DUBAI",
+                            title: "Desert Sky High",
+                            desc: "Performing amidst the skyscrapers and sand dunes. A spectacle of elegance and strength in one of the world's most dynamic cities.",
+                            gradient: "from-amber-400 to-yellow-600",
+                            align: "left"
+                        },
+                        {
+                            country: "POLAND",
+                            title: "European Debut",
+                            desc: "Taking our art to Europe. A mesmerizing showcase that bridged continents and captured hearts in Poland.",
+                            gradient: "from-rose-500 to-red-600",
                             align: "right"
                         },
                         {
                             country: "INDIA",
                             title: "Home Ground Heroes",
                             desc: "Top 6 Finalists on India's Got Talent Season 11. Performing for our nation was an honor, showcasing Northeast India's talent on the grandest stage.",
-                            gradient: "from-orange-500 to-yellow-500", // Indian vibe (saffron/gold)
+                            gradient: "from-orange-500 to-yellow-500",
                             align: "left"
                         },
-                        {
-                            country: "AFGHANISTAN",
-                            title: "Cultural Bridges",
-                            desc: "A special showcase demonstrating resilience and beauty through movement. Connecting hearts beyond borders.",
-                            gradient: "from-red-500 to-black",
-                            align: "right"
-                        }
                     ].map((item, index) => (
                         <motion.div
                             key={index}
@@ -156,14 +203,13 @@ const TourPage = () => {
                             transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
                             className={`flex flex-col md:flex-row items-center gap-12 ${item.align === 'right' ? 'md:flex-row-reverse' : ''}`}
                         >
-                            {/* Visual Card (Placeholder for now, or stylized block) */}
+                            {/* Visual Card */}
                             <div className="flex-1 w-full relative group perspective-1000">
                                 <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-500`} />
                                 <div className="relative h-80 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden transform transition-transform duration-500 group-hover:rotate-y-12 group-hover:scale-105 shadow-2xl">
                                     <div className="absolute inset-0 flex items-center justify-center text-9xl font-bold text-white/5 select-none font-cinzel">
                                         {item.country.substring(0, 3)}
                                     </div>
-                                    {/* If we had images for each country, they'd go here. Using gradient overlay for now */}
                                     <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-10 mix-blend-overlay`} />
                                 </div>
                             </div>
@@ -180,9 +226,6 @@ const TourPage = () => {
                                     <p className="text-gray-400 text-lg leading-relaxed mt-6 font-light">
                                         {item.desc}
                                     </p>
-                                    <button className="mt-8 px-8 py-3 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all duration-300 font-outfit uppercase tracking-wider text-sm">
-                                        View Details
-                                    </button>
                                 </div>
                             </div>
                         </motion.div>
@@ -196,3 +239,4 @@ const TourPage = () => {
 };
 
 export default TourPage;
+

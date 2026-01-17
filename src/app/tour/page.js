@@ -3,7 +3,7 @@ export const metadata = {
     description: "Tour",
 }
 
-import Tour from "@/app/components/Tour";
+import Tour from "@/app/tour/TourPage";
 
 export default function TourPage() {
     return <Tour />;
