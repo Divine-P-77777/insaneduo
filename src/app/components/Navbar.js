@@ -4,12 +4,15 @@ import { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(null);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,10 +39,9 @@ const Navbar = () => {
       name: "More",
       link: "more",
       dropdown: [
-        { name: "Who We Are", link: "about" },
         { name: "Performances", link: "/performance" },
         { name: "Tour", link: "/tour" },
-        { name: "Events Archive", link: "gallery" },
+        { name: "Events", link: "/events" },
       ],
     },
     { name: "Work", link: "experience" },
@@ -57,24 +59,40 @@ const Navbar = () => {
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo */}
-        <ScrollLink
-          to="home"
-          smooth
-          duration={1000}
-          className="cursor-pointer flex items-center gap-3 group"
-        >
-          <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20 group-hover:border-purple-500 transition-colors">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="font-cinzel text-2xl text-white tracking-widest">
-            Insane Duo
-          </div>
-        </ScrollLink>
+        {isHomePage ? (
+          <ScrollLink
+            to="home"
+            smooth
+            duration={1000}
+            className="cursor-pointer flex items-center gap-3 group"
+          >
+            <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20 group-hover:border-purple-500 transition-colors">
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="font-cinzel text-2xl text-white tracking-widest">
+              Insane Duo
+            </div>
+          </ScrollLink>
+        ) : (
+          <Link href="/" className="cursor-pointer flex items-center gap-3 group">
+            <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20 group-hover:border-purple-500 transition-colors">
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="font-cinzel text-2xl text-white tracking-widest">
+              Insane Duo
+            </div>
+          </Link>
+        )}
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center gap-8">
@@ -130,15 +148,25 @@ const Navbar = () => {
                   </div>
                 </div>
               ) : (
-                <ScrollLink
-                  to={item.link}
-                  smooth
-                  duration={1000}
-                  className="text-sm font-outfit uppercase tracking-wider text-gray-300 hover:text-purple-400 cursor-pointer transition-colors duration-300 relative group"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-purple-400 transition-all duration-300 group-hover:w-full" />
-                </ScrollLink>
+                isHomePage ? (
+                  <ScrollLink
+                    to={item.link}
+                    smooth
+                    duration={1000}
+                    className="text-sm font-outfit uppercase tracking-wider text-gray-300 hover:text-purple-400 cursor-pointer transition-colors duration-300 relative group"
+                  >
+                    {item.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-purple-400 transition-all duration-300 group-hover:w-full" />
+                  </ScrollLink>
+                ) : (
+                  <Link
+                    href={`/#${item.link}`}
+                    className="text-sm font-outfit uppercase tracking-wider text-gray-300 hover:text-purple-400 cursor-pointer transition-colors duration-300 relative group"
+                  >
+                    {item.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-purple-400 transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                )
               )}
             </li>
           ))}
@@ -233,15 +261,25 @@ const Navbar = () => {
                   </div>
                 </div>
               ) : (
-                <ScrollLink
-                  to={item.link}
-                  smooth
-                  duration={1000}
-                  className="text-2xl font-cinzel text-white hover:text-purple-400 cursor-pointer block py-2"
-                  onClick={() => setToggle(false)}
-                >
-                  {item.name}
-                </ScrollLink>
+                isHomePage ? (
+                  <ScrollLink
+                    to={item.link}
+                    smooth
+                    duration={1000}
+                    className="text-2xl font-cinzel text-white hover:text-purple-400 cursor-pointer block py-2"
+                    onClick={() => setToggle(false)}
+                  >
+                    {item.name}
+                  </ScrollLink>
+                ) : (
+                  <Link
+                    href={`/#${item.link}`}
+                    className="text-2xl font-cinzel text-white hover:text-purple-400 cursor-pointer block py-2"
+                    onClick={() => setToggle(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
               )}
             </div>
           ))}

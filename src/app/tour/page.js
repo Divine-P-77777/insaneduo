@@ -1,10 +1,14 @@
+import TourPage from "./TourPage";
+
 export const metadata = {
-    title: "Tour",
-    description: "Tour",
-}
+    title: "Global Tour",
+    description: "Follow the Insane Duo across the globe. See their past and upcoming performance locations on the world map.",
+};
 
-import Tour from "@/app/tour/TourPage";
+const Page = () => {
+    return (
+        <TourPage />
+    );
+};
 
-export default function TourPage() {
-    return <Tour />;
-}
+export default Page;

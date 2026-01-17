@@ -116,6 +116,7 @@ const Footer = () => {
                                 { name: "Vertilab", href: "/#experience" },
                                 { name: "Performances", href: "/performance" },
                                 { name: "Tour", href: "/tour" },
+                                { name: "Events", href: "/events" },
                                 { name: "Archive", href: "/#gallery" },
                                 { name: "Contact", href: "/#contact" }
                             ].map((item) => (
