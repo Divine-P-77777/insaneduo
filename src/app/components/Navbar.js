@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import Link from "next/link";
+import Image from "next/image";
 import clsx from "clsx";
 
 const Navbar = () => {
@@ -63,10 +64,11 @@ const Navbar = () => {
           className="cursor-pointer flex items-center gap-3 group"
         >
           <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20 group-hover:border-purple-500 transition-colors">
-            <img
+            <Image
               src="/logo.png"
               alt="Logo"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
           <div className="font-cinzel text-2xl text-white tracking-widest">

@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CareerOverview() {
   const containerVariants = {
@@ -68,16 +69,18 @@ export default function CareerOverview() {
         {/* Right Content - Image Collage */}
         <div className="relative h-[600px] w-full hidden lg:block">
           {/* Main Large Image */}
+          {/* Main Large Image */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="absolute top-0 right-10 w-[60%] h-[80%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-10"
           >
-            <img
+            <Image
               src="/memories/m14.jpg"
               alt="Aerial Performance"
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+              fill
+              className="object-cover hover:scale-110 transition-transform duration-700"
             />
           </motion.div>
 
@@ -88,10 +91,11 @@ export default function CareerOverview() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="absolute top-20 left-0 w-[45%] h-[40%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-20"
           >
-            <img
+            <Image
               src="/bg1.jpg"
               alt="Duo Act"
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+              fill
+              className="object-cover hover:scale-110 transition-transform duration-700"
             />
           </motion.div>
 
@@ -102,10 +106,11 @@ export default function CareerOverview() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="absolute bottom-0 left-20 w-[50%] h-[45%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-0"
           >
-            <img
+            <Image
               src="/memories/m10.jpg"
               alt="Acrobatics"
-              className="w-full h-full scale-x-[-1] object-cover hover:scale-110 transition-transform duration-700"
+              fill
+              className="scale-x-[-1] object-cover hover:scale-110 transition-transform duration-700"
             />
           </motion.div>
         </div>

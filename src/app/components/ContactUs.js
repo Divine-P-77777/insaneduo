@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import Image from "next/image";
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
@@ -102,8 +103,8 @@ const ContactUs = () => {
 
             {/* Event Manager Details */}
             <div className="flex items-center gap-4 mb-8 bg-white/5 p-4 rounded-2xl border border-white/10">
-              <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500 shadow-lg shadow-purple-500/20">
-                <img src="/wallpaperdark/artist.jpg" alt="Dhanraj Shah" className="w-full h-full object-cover" />
+              <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500 shadow-lg shadow-purple-500/20 relative">
+                <Image src="/wallpaperdark/artist.jpg" alt="Dhanraj Shah" fill className="object-cover" />
               </div>
               <div>
                 <p className="text-white font-cinzel font-bold text-lg">Manager Name</p>

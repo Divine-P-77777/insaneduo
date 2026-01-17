@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Gallery = () => {
@@ -30,9 +32,9 @@ const Gallery = () => {
 
     return (
         <section id="gallery" className="relative py-24 px-4 bg-background overflow-hidden">
-            {/* Header Section */}
+
             <div className="text-center mb-16 relative">
-                {/* Watermark */}
+
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[6rem] md:text-[10rem] font-bold text-white/5 select-none pointer-events-none font-outfit uppercase z-0 tracking-widest">
                     Gallery
                 </div>
@@ -50,7 +52,6 @@ const Gallery = () => {
             {/* Grid - NOW MASONRY */}
             <div className="max-w-7xl mx-auto columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                 {shuffledImages.map((img, index) => {
-                    // Generate a random delay between 0 and 1.5 seconds for the "randomly appeared" effect
                     const randomDelay = Math.random() * 1.5;
 
                     return (
@@ -62,9 +63,11 @@ const Gallery = () => {
                             transition={{ duration: 0.8, delay: randomDelay, ease: "easeOut" }}
                             className="relative group overflow-hidden rounded-xl border border-white/10 break-inside-avoid"
                         >
-                            <img
+                            <Image
                                 src={img.src}
                                 alt={img.caption}
+                                width={500}
+                                height={700}
                                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">

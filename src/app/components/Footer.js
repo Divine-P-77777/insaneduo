@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import Image from "next/image";
 
 const Footer = () => {
     return (
@@ -19,7 +20,7 @@ const Footer = () => {
                     <div className="space-y-8">
                         <div className="flex flex-col items-start gap-6">
                             <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.3)] bg-black">
-                                <img src="/logo.png" className="w-full h-full object-cover" alt="Insane Duo Logo" />
+                                <Image src="/logo.png" fill className="object-cover" alt="Insane Duo Logo" />
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-cinzel text-2xl font-bold text-white">Insane Duo</h3>
@@ -111,16 +112,16 @@ const Footer = () => {
                         <h4 className="font-cinzel text-xl font-bold text-white">Quick Links</h4>
                         <ul className="space-y-3">
                             {[
-                                { name: "Who We Are", link: "who-we-are" },
-                                { name: "Vertilab", link: "vertilab" },
-                                { name: "Performances", link: "performances" },
-                                { name: "Tour", link: "tour" },
-                                { name: "Archive", link: "events-archive" },
-                                { name: "Contact", link: "contact" }
+                                { name: "Who We Are", href: "/#about" },
+                                { name: "Vertilab", href: "/#experience" },
+                                { name: "Performances", href: "/performance" },
+                                { name: "Tour", href: "/tour" },
+                                { name: "Archive", href: "/#gallery" },
+                                { name: "Contact", href: "/#contact" }
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link
-                                        href={`#${item.link}`}
+                                        href={item.href}
                                         className="text-gray-400 hover:text-purple-400 hover:pl-2 transition-all flex items-center gap-2 group"
                                     >
                                         <span className="text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
