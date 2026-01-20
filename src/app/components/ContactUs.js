@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import Image from "next/image";
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Facebook } from 'lucide-react';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -104,13 +104,13 @@ const ContactUs = () => {
             {/* Event Manager Details */}
             <div className="flex items-center gap-4 mb-8 bg-white/5 p-4 rounded-2xl border border-white/10">
               <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500 shadow-lg shadow-purple-500/20 relative">
-                <Image src="/wallpaperdark/artist.jpg" alt="Dhanraj Shah" fill className="object-cover" />
+                <Image src="/manager.jpeg" alt="Govinda Goswami" fill className="object-cover" />
               </div>
               <div>
-                <p className="text-white font-cinzel font-bold text-lg">Manager Name</p>
+                <p className="text-white font-cinzel font-bold text-lg"> Govinda Goswami</p>
                 <p className="text-gray-400 text-sm font-outfit uppercase tracking-wider mb-1">Event Manager</p>
-                <a href="tel:+918486667652" className="text-purple-400 hover:text-white transition-colors text-sm flex items-center gap-2">
-                  <Phone className="w-3 h-3" /> +91 **********
+                <a href="tel:+919619859858" className="text-purple-400 hover:text-white transition-colors text-sm flex items-center gap-2">
+                  <Phone className="w-3 h-3" /> +91 96198 59858
                 </a>
               </div>
             </div>
@@ -119,6 +119,14 @@ const ContactUs = () => {
               <p className="flex items-center gap-3">
                 <Mail className="text-purple-500 w-5 h-5" />
                 <a href="mailto:insaneduoindia@gmail.com" className="hover:text-purple-400">insaneduoindia@gmail.com</a>
+              </p>
+              <p className="flex items-center gap-3">
+                <Instagram className="text-purple-500 w-5 h-5" />
+                <a href="https://www.instagram.com/insaneduoindia" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400">@insaneduo</a>
+              </p>
+              <p className="flex items-center gap-3">
+                <Facebook className="text-purple-500 w-5 h-5" />
+                <a href="https://www.facebook.com/share/1CuREmwxpT/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400">Insane Duo</a>
               </p>
               <p className="flex items-center gap-3">
                 <MapPin className="text-purple-500 w-5 h-5" />

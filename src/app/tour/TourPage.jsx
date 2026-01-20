@@ -4,29 +4,29 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// --- DATA: LOCATIONS & CONNECTIONS ---
-// Coordinate System (Approximate % for visual layout):
-// Center-Right: India Region. Left: Middle East/Europe. Far Right: SE Asia.
+
 const locations = [
-    // 0: Start - Assam
     { name: "Guwahati", x: "75%", y: "45%", color: "#ec4899" },
-    // 1-9: India Tour (Spread out)
     { name: "Kolkata", x: "70%", y: "52%", color: "#a855f7" },
     { name: "Raipur", x: "65%", y: "56%", color: "#a855f7" },
     { name: "Gaziabad", x: "60%", y: "38%", color: "#a855f7" },
     { name: "Delhi", x: "58%", y: "40%", color: "#a855f7" },
-    { name: "Jaipur", x: "53%", y: "42%", color: "#a855f7" },
+    { name: "Rajasthan", x: "53%", y: "42%", color: "#a855f7" },
     { name: "Gujarat", x: "48%", y: "50%", color: "#a855f7" },
     { name: "Mumbai", x: "50%", y: "58%", color: "#a855f7" },
     { name: "Goa", x: "52%", y: "66%", color: "#a855f7" },
     { name: "Bangalore", x: "58%", y: "72%", color: "#a855f7" },
     { name: "Kerala", x: "56%", y: "78%", color: "#a855f7" },
 
-    // 11-14: International (Wider reach)
-    { name: "Dubai", x: "35%", y: "45%", color: "#fbbf24" }, // Gold
+    { name: "Dubai", x: "35%", y: "45%", color: "#fbbf24" },
     { name: "Uzbekistan", x: "38%", y: "25%", color: "#fbbf24" },
     { name: "Poland", x: "15%", y: "20%", color: "#fbbf24" },
     { name: "Indonesia", x: "90%", y: "75%", color: "#fbbf24" },
+    { name: "Sri Lanka", x: "60%", y: "85%", color: "#fbbf24" },
+    { name: "Singapore", x: "82%", y: "68%", color: "#fbbf24" },
+    { name: "Patna", x: "66%", y: "44%", color: "#a855f7" },
+    { name: "Punjab", x: "55%", y: "35%", color: "#a855f7" },
+    { name: "Lucknow", x: "62%", y: "42%", color: "#a855f7" },
 ];
 
 const connections = [
@@ -35,8 +35,8 @@ const connections = [
     { from: 1, to: 2 }, // Kolkata -> Raipur
     { from: 2, to: 4 }, // Raipur -> Delhi
     { from: 4, to: 3 }, // Delhi -> Gaziabad (Close)
-    { from: 4, to: 5 }, // Delhi -> Jaipur
-    { from: 5, to: 6 }, // Jaipur -> Gujarat
+    { from: 4, to: 5 }, // Delhi -> Rajasthan
+    { from: 5, to: 6 }, // Rajasthan -> Gujarat 
     { from: 6, to: 7 }, // Gujarat -> Mumbai
     { from: 7, to: 8 }, // Mumbai -> Goa
     { from: 8, to: 9 }, // Goa -> Bangalore
@@ -47,16 +47,25 @@ const connections = [
     { from: 4, to: 11 }, // Delhi -> Dubai (Alt Gateway)
     { from: 11, to: 12 }, // Dubai -> Uzbekistan
     { from: 12, to: 13 }, // Uzbekistan -> Poland
-    { from: 1, to: 14 }, // Kolkata -> Indonesia (Eastward)
+    { from: 1, to: 14 }, // Kolkata -> Indonesia (Eastward - old path)
+
+    // New Connections
+    { from: 10, to: 15 }, // Kerala -> Sri Lanka
+    { from: 1, to: 16 }, // Kolkata -> Singapore
+    { from: 16, to: 14 }, // Singapore -> Indonesia
+    { from: 1, to: 17 }, // Kolkata -> Patna
+    { from: 17, to: 19 }, // Patna -> Lucknow
+    { from: 19, to: 4 }, // Lucknow -> Delhi
+    { from: 4, to: 18 }, // Delhi -> Punjab
 ];
 
 const domesticCities = [
-    "Mumbai", "Delhi", "Jaipur", "Kolkata", "Guwahati", "Kerala", "Bangalore",
-    "Raipur", "Gaziabad", "Goa", "Gujarat"
+    "Mumbai", "Delhi", "Rajasthan", "Kolkata", "Guwahati", "Kerala", "Bangalore",
+    "Raipur", "Gaziabad", "Goa", "Gujarat", "Patna", "Punjab", "Lucknow"
 ];
 
 const internationalNations = [
-    "Indonesia", "Uzbekistan", "Dubai", "Poland"
+    "Indonesia", "Uzbekistan", "Dubai", "Poland", "Sri Lanka", "Singapore"
 ];
 
 const TourPage = () => {

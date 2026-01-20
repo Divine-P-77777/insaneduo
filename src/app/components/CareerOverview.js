@@ -67,14 +67,13 @@ export default function CareerOverview() {
         </motion.div>
 
         {/* Right Content - Image Collage */}
-        <div className="relative h-[600px] w-full hidden lg:block">
-          {/* Main Large Image */}
+        <div className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full mt-12 lg:mt-0">
           {/* Main Large Image */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="absolute top-0 right-10 w-[60%] h-[80%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-10"
+            className="absolute top-0 right-0 md:right-10 w-[65%] h-[75%] md:w-[60%] md:h-[80%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-10"
           >
             <Image
               src="/memories/m14.jpg"
@@ -89,7 +88,7 @@ export default function CareerOverview() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="absolute top-20 left-0 w-[45%] h-[40%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-20"
+            className="absolute top-20 left-0 w-[40%] h-[35%] md:w-[45%] md:h-[40%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-20"
           >
             <Image
               src="/bg1.jpg"
@@ -104,7 +103,7 @@ export default function CareerOverview() {
             initial={{ opacity: 0, y: -50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="absolute bottom-0 left-20 w-[50%] h-[45%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-0"
+            className="absolute bottom-0 left-4 md:left-20 w-[50%] h-[40%] md:w-[50%] md:h-[45%] overflow-hidden rounded-lg border border-white/10 shadow-2xl z-0"
           >
             <Image
               src="/memories/m10.jpg"

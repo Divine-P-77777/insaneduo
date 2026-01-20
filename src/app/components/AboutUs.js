@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Instagram, Facebook, Youtube } from "lucide-react";
 
 export default function AboutUs() {
   const containerVariants = {
@@ -40,26 +41,35 @@ export default function AboutUs() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Profile Cards */}
           {[
+
             {
               name: "Dhanraj Shah",
-              image: "/wallpaperdark/artist.jpg", // Placeholder using existing art
+              image: "/dhanraj.jpeg",
               details: [
                 "Date of Birth: July 28, 1996",
                 "Height: 5'8\"",
                 "Contact: +91 8486667652",
                 "Email: insaneduoindia@gmail.com",
                 "Address: India"
+              ],
+              socials: [
+                { icon: Instagram, link: "https://www.instagram.com/insaneduo_?igsh=MWdjcTQybHVqZ2NuMg%3D%3D&utm_source=qr" },
+                { icon: Facebook, link: "https://www.facebook.com/dhanrajshah28?mibextid=wwXIfr&mibextid=wwXIfr" }
               ]
             },
             {
               name: "Gayatri Prajapati",
-              image: "/wallpaperdark/artist2.jpg", // Placeholder using existing art
+              image: "/gayatri.jpeg",
               details: [
                 "Date of Birth: November 15, 1998",
                 "Height: 5'0\"",
                 "Contact: +91 9859334179",
                 "Email: prajapatigayatri46@gmail.com",
                 "Address: Birubari, Guwahati, Assam"
+              ],
+              socials: [
+                { icon: Instagram, link: "https://www.instagram.com/insaneduo_gayatri?igsh=MWV6aHNzYjRuY2tjNA==" },
+                { icon: Facebook, link: "https://www.facebook.com/share/1D5JzWgdjx/?mibextid=wwXIfr" }
               ]
             }
           ].map((person, index) => (
@@ -74,12 +84,37 @@ export default function AboutUs() {
               </div>
 
               <div className="text-center sm:text-left">
-                <h3 className="text-2xl font-cinzel font-bold text-purple-300 mb-4">{person.name}</h3>
-                <ul className="space-y-2 text-gray-300 font-outfit text-sm md:text-base">
-                  {person.details.map((line, i) => (
-                    <li key={i}>{line}</li>
-                  ))}
+                <h3 className="text-2xl font-cinzel font-bold text-purple-300 mb-2">{person.name}</h3>
+                <ul className="space-y-1 text-gray-300 font-outfit text-sm md:text-base mb-4">
+                  {person.details.map((line, i) => {
+                    if (line.trim().startsWith("Contact:")) {
+                      const phoneNumber = line.split(":")[1].trim();
+                      return (
+                        <li key={i}>
+                          Contact: <a href={`tel:${phoneNumber.replace(/\s+/g, '')}`} className="text-purple-400 hover:text-purple-300 transition-colors">{phoneNumber}</a>
+                        </li>
+                      );
+                    }
+                    return <li key={i}>{line}</li>;
+                  })}
                 </ul>
+
+                {/* Social Icons */}
+                {person.socials && person.socials.length > 0 && (
+                  <div className="flex gap-4 justify-center sm:justify-start">
+                    {person.socials.map((social, idx) => (
+                      <a
+                        key={idx}
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-purple-400 transition-colors"
+                      >
+                        <social.icon className="w-5 h-5" />
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

@@ -49,7 +49,6 @@ const Gallery = () => {
                 </div>
             </div>
 
-            {/* Grid - NOW MASONRY */}
             <div className="max-w-7xl mx-auto columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                 {shuffledImages.map((img, index) => {
                     const randomDelay = Math.random() * 1.5;
