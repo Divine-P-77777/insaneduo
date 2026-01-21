@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Image from "next/image";
@@ -45,14 +45,26 @@ const events = [
 ];
 
 export default function EventsPage() {
+    const { scrollY } = useScroll();
+    const y = useTransform(scrollY, [0, 500], [0, 150]);
+
     return (
         <div className="bg-black min-h-screen text-white font-outfit overflow-x-hidden">
             <Navbar />
 
             {/* Hero Section */}
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-purple-900/40 via-black/80 to-black z-0" />
-                <div className="absolute inset-0 bg-[url('/wallpaperdark/insanebg1.JPG')] bg-cover bg-center opacity-30 blur-sm" />
+                <div className="absolute inset-0 bg-gradient-to-b from-purple-900/40 via-black/80 to-black z-10" />
+                <motion.div style={{ y }} className="absolute -top-[20%] inset-x-0 h-[140%] z-0">
+                    <Image
+                        src="/wallpaperdark/insanebg1.JPG"
+                        alt="Events Background"
+                        fill
+                        priority
+                        className="object-cover opacity-30 blur-sm"
+                        sizes="100vw"
+                    />
+                </motion.div>
 
                 <div className="relative z-10 text-center px-4">
                     <motion.h1

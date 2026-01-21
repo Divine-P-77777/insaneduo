@@ -71,7 +71,9 @@ const Navbar = () => {
                 src="/logo.png"
                 alt="Logo"
                 fill
+                priority
                 className="object-cover"
+                sizes="48px"
               />
             </div>
             <div className="font-cinzel text-2xl text-white tracking-widest">
@@ -85,7 +87,9 @@ const Navbar = () => {
                 src="/logo.png"
                 alt="Logo"
                 fill
+                priority
                 className="object-cover"
+                sizes="48px"
               />
             </div>
             <div className="font-cinzel text-2xl text-white tracking-widest">

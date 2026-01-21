@@ -80,6 +80,7 @@ export default function CareerOverview() {
               alt="Aerial Performance"
               fill
               className="object-cover hover:scale-110 transition-transform duration-700"
+              sizes="(max-width: 1024px) 100vw, 33vw"
             />
           </motion.div>
 
@@ -95,6 +96,7 @@ export default function CareerOverview() {
               alt="Duo Act"
               fill
               className="object-cover hover:scale-110 transition-transform duration-700"
+              sizes="(max-width: 1024px) 50vw, 25vw"
             />
           </motion.div>
 
@@ -110,6 +112,7 @@ export default function CareerOverview() {
               alt="Acrobatics"
               fill
               className="scale-x-[-1] object-cover hover:scale-110 transition-transform duration-700"
+              sizes="(max-width: 1024px) 50vw, 25vw"
             />
           </motion.div>
         </div>

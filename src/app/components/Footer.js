@@ -20,7 +20,7 @@ const Footer = () => {
                     <div className="space-y-8">
                         <div className="flex flex-col items-start gap-6">
                             <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.3)] bg-black">
-                                <Image src="/logo.png" fill className="object-cover" alt="Insane Duo Logo" />
+                                <Image src="/logo.png" fill className="object-cover" alt="Insane Duo Logo" sizes="96px" />
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-cinzel text-2xl font-bold text-white">Insane Duo</h3>

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { Parallax } from "react-parallax";
+import Image from "next/image";
 
 const slides = [
   {
@@ -29,6 +29,8 @@ const slides = [
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -46,19 +48,20 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute inset-0 w-full h-full"
+          style={{ y }}
+          className="absolute -top-[10%] inset-x-0 w-full h-[120%]"
         >
-          <Parallax
-            blur={0}
-            bgImage={slides[index].image}
-            bgImageAlt="Hero Background"
-            strength={200}
-            className="w-full h-full"
-            contentClassName="w-full h-full flex items-center justify-center"
-            bgImageStyle={{ objectFit: "cover", width: "100%", height: "100vh" }}
-          >
-            <div className="absolute inset-0 bg-black/60" />
-          </Parallax>
+          <div className="relative w-full h-full">
+            <Image
+              src={slides[index].image}
+              alt="Hero Background"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-black/60 z-10" />
+          </div>
         </motion.div>
       </AnimatePresence>
 

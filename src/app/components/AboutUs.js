@@ -80,7 +80,7 @@ export default function AboutUs() {
             >
               {/* Profile Pic Placeholder */}
               <div className="w-32 h-32 shrink-0 rounded-full overflow-hidden border-4 border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)] relative">
-                <Image src={person.image} alt={person.name} fill className="object-cover" />
+                <Image src={person.image} alt={person.name} fill className="object-cover" sizes="(max-width: 640px) 128px, 128px" />
               </div>
 
               <div className="text-center sm:text-left">
