@@ -49,7 +49,6 @@ const connections = [
     { from: 12, to: 13 }, // Uzbekistan -> Poland
     { from: 1, to: 14 }, // Kolkata -> Indonesia (Eastward - old path)
 
-    // New Connections
     { from: 10, to: 15 }, // Kerala -> Sri Lanka
     { from: 1, to: 16 }, // Kolkata -> Singapore
     { from: 16, to: 14 }, // Singapore -> Indonesia
