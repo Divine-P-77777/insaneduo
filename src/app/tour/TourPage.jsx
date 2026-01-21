@@ -6,27 +6,27 @@ import Footer from "../components/Footer";
 
 
 const locations = [
-    { name: "Guwahati", x: "75%", y: "45%", color: "#ec4899" },
-    { name: "Kolkata", x: "70%", y: "52%", color: "#a855f7" },
-    { name: "Raipur", x: "65%", y: "56%", color: "#a855f7" },
-    { name: "Gaziabad", x: "60%", y: "38%", color: "#a855f7" },
-    { name: "Delhi", x: "58%", y: "40%", color: "#a855f7" },
-    { name: "Rajasthan", x: "53%", y: "42%", color: "#a855f7" },
-    { name: "Gujarat", x: "48%", y: "50%", color: "#a855f7" },
-    { name: "Mumbai", x: "50%", y: "58%", color: "#a855f7" },
-    { name: "Goa", x: "52%", y: "66%", color: "#a855f7" },
-    { name: "Bangalore", x: "58%", y: "72%", color: "#a855f7" },
-    { name: "Kerala", x: "56%", y: "78%", color: "#a855f7" },
+    { name: "Guwahati", x: "85%", y: "45%", color: "#ec4899" }, // Shifted Right
+    { name: "Kolkata", x: "78%", y: "55%", color: "#a855f7" }, // Shifted Right/Down
+    { name: "Raipur", x: "68%", y: "58%", color: "#a855f7" }, // Shifted Right
+    { name: "Gaziabad", x: "65%", y: "30%", color: "#a855f7" }, // Shifted Up/Right
+    { name: "Delhi", x: "58%", y: "38%", color: "#a855f7" }, // Centered anchor
+    { name: "Rajasthan", x: "48%", y: "40%", color: "#a855f7" }, // Shifted Left/Up
+    { name: "Gujarat", x: "46%", y: "52%", color: "#a855f7" },
+    { name: "Mumbai", x: "50%", y: "62%", color: "#a855f7" },
+    { name: "Goa", x: "52%", y: "70%", color: "#a855f7" },
+    { name: "Bangalore", x: "58%", y: "76%", color: "#a855f7" },
+    { name: "Kerala", x: "56%", y: "82%", color: "#a855f7" },
 
-    { name: "Dubai", x: "35%", y: "45%", color: "#fbbf24" },
-    { name: "Uzbekistan", x: "38%", y: "25%", color: "#fbbf24" },
-    { name: "Poland", x: "15%", y: "20%", color: "#fbbf24" },
-    { name: "Indonesia", x: "90%", y: "75%", color: "#fbbf24" },
-    { name: "Sri Lanka", x: "60%", y: "85%", color: "#fbbf24" },
-    { name: "Singapore", x: "82%", y: "68%", color: "#fbbf24" },
-    { name: "Patna", x: "66%", y: "44%", color: "#a855f7" },
-    { name: "Punjab", x: "55%", y: "35%", color: "#a855f7" },
-    { name: "Lucknow", x: "62%", y: "42%", color: "#a855f7" },
+    { name: "Dubai", x: "30%", y: "48%", color: "#fbbf24" },
+    { name: "Uzbekistan", x: "35%", y: "20%", color: "#fbbf24" },
+    { name: "Poland", x: "12%", y: "18%", color: "#fbbf24" },
+    { name: "Indonesia", x: "92%", y: "75%", color: "#fbbf24" },
+    { name: "Sri Lanka", x: "62%", y: "88%", color: "#fbbf24" },
+    { name: "Singapore", x: "85%", y: "68%", color: "#fbbf24" },
+    { name: "Patna", x: "73%", y: "45%", color: "#a855f7" }, // Shifted Right
+    { name: "Punjab", x: "52%", y: "28%", color: "#a855f7" }, // Shifted Left/Up significantly
+    { name: "Lucknow", x: "68%", y: "40%", color: "#a855f7" }, // Shifted Right
 ];
 
 const connections = [
@@ -101,7 +101,7 @@ const TourPage = () => {
                                 strokeWidth="2"
                                 strokeLinecap="round"
                                 initial={{ pathLength: 0, opacity: 0 }}
-                                animate={{ pathLength: 1, opacity: 0.3 }}
+                                animate={{ pathLength: 1, opacity: 0.15 }}
                                 transition={{ duration: 2.5, delay: i * 0.15, ease: "easeInOut" }}
                             />
                         );
@@ -128,7 +128,7 @@ const TourPage = () => {
                         >
                             <div className="relative group cursor-pointer">
                                 {/* Pulse Effect */}
-                                <div className={`absolute -inset-2 rounded-full blur-md animate-pulse opacity-70`} style={{ backgroundColor: loc.color }} />
+                                <div className={`absolute -inset-2 rounded-full blur-md animate-pulse opacity-40`} style={{ backgroundColor: loc.color }} />
                                 {/* Pin Head */}
                                 <div className={`w-3 h-3 bg-white rounded-full border-2 shadow-[0_0_10px_currentColor]`} style={{ borderColor: loc.color, color: loc.color }} />
                                 {/* Label */}
