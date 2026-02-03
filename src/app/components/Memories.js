@@ -121,7 +121,7 @@ const Memories = () => {
       {/* MEMORIES Watermark */}
       <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
         <h1 className="text-[10rem] md:text-[18rem] font-bold font-outfit uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-b from-white/10 via-purple-400/10 to-transparent">
-          MEMORIES
+          LIVE
         </h1>
       </div>
 
