@@ -111,7 +111,7 @@ export default function CareerOverview() {
               src="/memories/m10.jpg"
               alt="Acrobatics"
               fill
-              className="scale-x-[-1] object-cover hover:scale-110 transition-transform duration-700"
+              className="scale-x-[-1] object-cover hover:scale-x-[-1.1] hover:scale-y-[1.1] transition-transform duration-700"
               sizes="(max-width: 1024px) 50vw, 25vw"
             />
           </motion.div>
