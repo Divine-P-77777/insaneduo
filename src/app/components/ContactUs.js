@@ -101,19 +101,6 @@ const ContactUs = () => {
           <div>
             <h3 className="text-2xl font-cinzel font-bold mb-6 text-purple-300">Contact Information</h3>
 
-            {/* Event Manager Details */}
-            <div className="flex items-center gap-4 mb-8 bg-white/5 p-4 rounded-2xl border border-white/10">
-              <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-500 shadow-lg shadow-purple-500/20 relative">
-                <Image src="/manager.jpeg" alt="Govinda Goswami" fill className="object-cover" sizes="64px" />
-              </div>
-              <div>
-                <p className="text-white font-cinzel font-bold text-lg"> Govinda Goswami</p>
-                <p className="text-gray-400 text-sm font-outfit uppercase tracking-wider mb-1">Event Manager</p>
-                <a href="tel:+919619859858" className="text-purple-400 hover:text-white transition-colors text-sm flex items-center gap-2">
-                  <Phone className="w-3 h-3" /> +91 96198 59858
-                </a>
-              </div>
-            </div>
 
             <div className="space-y-4 font-outfit text-lg">
               <p className="flex items-center gap-3">

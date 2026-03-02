@@ -60,7 +60,7 @@ export default function CareerOverview() {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <Link href="/achievements" className="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-none uppercase tracking-wider transition-all hover:scale-105 shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+            <Link href="/performance" className="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-none uppercase tracking-wider transition-all hover:scale-105 shadow-[0_0_20px_rgba(147,51,234,0.3)]">
               See All Performances &rarr;
             </Link>
           </motion.div>
