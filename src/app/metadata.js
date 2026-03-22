@@ -1,4 +1,6 @@
-
+/**
+ * @type {import('next').Metadata}
+ */
 export const metadata = {
   metadataBase: new URL('https://www.insaneduo.in'),
   title: {

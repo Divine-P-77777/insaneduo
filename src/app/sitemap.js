@@ -1,3 +1,6 @@
+/**
+ * @returns {import('next').MetadataRoute.Sitemap}
+ */
 export default function sitemap() {
     const baseUrl = 'https://www.insaneduo.in';
 
@@ -7,6 +10,7 @@ export default function sitemap() {
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 1,
+            images: ['https://www.insaneduo.in/_next/image?url=%2Fwallpaperdark%2Finsanebg1.JPG&w=3840&q=75'],
         },
         {
             url: `${baseUrl}/performance`,
