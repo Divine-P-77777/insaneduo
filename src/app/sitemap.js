@@ -10,7 +10,7 @@ export default function sitemap() {
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 1,
-            images: ['https://www.insaneduo.in/_next/image?url=%2Fwallpaperdark%2Finsanebg1.JPG&w=3840&q=75'],
+            images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtcekqa3OzWTbHpwq8yiyWi2ZR4L8kZShgw&amp;s'],
         },
         {
             url: `${baseUrl}/lander`,
