@@ -10,7 +10,7 @@ export default function sitemap() {
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 1,
-            images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgtcekqa3OzWTbHpwq8yiyWi2ZR4L8kZShgw&amp;s'],
+            images: [`${baseUrl}/memories/m11.jpg`],
         },
         {
             url: `${baseUrl}/lander`,
