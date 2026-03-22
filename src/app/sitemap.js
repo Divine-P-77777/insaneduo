@@ -13,6 +13,12 @@ export default function sitemap() {
             images: ['https://www.insaneduo.in/_next/image?url=%2Fwallpaperdark%2Finsanebg1.JPG&w=3840&q=75'],
         },
         {
+            url: `${baseUrl}/lander`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        {
             url: `${baseUrl}/performance`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
