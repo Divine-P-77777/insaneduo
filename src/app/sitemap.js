@@ -8,20 +8,14 @@ export default function sitemap() {
         {
             url: baseUrl,
             lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 1,
-            images: [`${baseUrl}/memories/m11.jpg`],
-        },
-        {
-            url: `${baseUrl}/lander`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
+            changeFrequency: 'weekly',
+            priority: 1.0,
+            images: [`${baseUrl}/logo.png`, `${baseUrl}/wallpaperdark/insanebg1.JPG`],
         },
         {
             url: `${baseUrl}/performance`,
             lastModified: new Date(),
-            changeFrequency: 'weekly',
+            changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
@@ -40,19 +34,19 @@ export default function sitemap() {
             url: `${baseUrl}/privacy`,
             lastModified: new Date(),
             changeFrequency: 'yearly',
-            priority: 0.5,
+            priority: 0.3,
         },
         {
             url: `${baseUrl}/cookies`,
             lastModified: new Date(),
             changeFrequency: 'yearly',
-            priority: 0.5,
+            priority: 0.3,
         },
         {
             url: `${baseUrl}/policy`,
             lastModified: new Date(),
             changeFrequency: 'yearly',
-            priority: 0.5,
+            priority: 0.3,
         },
     ];
 }

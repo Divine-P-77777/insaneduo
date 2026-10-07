@@ -125,12 +125,13 @@ const ContactUs = () => {
           <div className="h-80 w-full rounded-2xl overflow-hidden border border-white/10 shadow-lg grayscale hover:grayscale-0 transition-all duration-700">
             <iframe
               title="Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114370.31551668844!2d91.70211500941048!3d26.199739824112013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3741a3b7e8d7f5d3%3A0x6b313b935ce7028a!2s%2C%20India!5e0!3m2!1sen!2sus!4v1645649737553!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.271636916271!2d91.7363991!3d26.1275103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5bca85241de3%3A0x6266989b8532df13!2sInsane%20Danze%20Company!5e1!3m2!1sen!2sin!4v1791399727114!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
         </motion.div>

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Trophy, Star, Dumbbell, Target, Sparkles } from "lucide-react";
 
 export default function Achievements() {
   const containerVariants = {
@@ -41,23 +42,23 @@ export default function Achievements() {
             {
               title: "India's Got Talent Season 11",
               desc: "Finalist | Reached the Grand Finale, captivating the nation with aerial excellence.",
-              icon: "🏆"
+              icon: <Trophy size={36} className="text-yellow-400" />
             },
             {
               title: "International Recognition",
               desc: "Represented India on global platforms, featuring in international reality talent shows like Indonesia’s Got Talent and O'zbekiston's Got Talent.",
-              icon: "🌟"
+              icon: <Star size={36} className="text-purple-400" />
             },
             {
               title: "Founded Insane DanZe Company",
               desc: "Established Northeast India’s first aerial and dance academy, inspiring and training the next generation of performers.",
-              icon: "🏆"
+              icon: <Trophy size={36} className="text-yellow-400" />
             },
 
             {
               title: "Personal Records",
               desc: "Teeth Hang: 1 min 12s by Dhanraj Shah. | Hair Hang: Suspended 60 kg by Gayatri Prajapati, showcasing extreme strength.",
-              icon: "💪"
+              icon: <Dumbbell size={36} className="text-blue-400" />
             }
           ].map((item, index) => (
             <motion.div
@@ -81,15 +82,15 @@ export default function Achievements() {
           className="mt-12 bg-gradient-to-r from-purple-900/20 to-black backdrop-blur-md p-8 rounded-2xl border border-purple-500/30"
         >
           <h3 className="text-2xl font-cinzel font-bold text-white mb-4 flex items-center gap-3">
-            <span className="text-3xl">🎯</span> Goals
+            <Target size={32} className="text-red-400" /> Goals
           </h3>
           <ul className="space-y-4 text-gray-300 font-outfit leading-relaxed">
             <li className="flex gap-3">
-              <span className="text-purple-500 mt-1">✦</span>
+              <Sparkles size={20} className="text-purple-500 mt-1 flex-shrink-0" />
               To compete in America's Got Talent to enhance their international visibility and reach a broader audience.
             </li>
             <li className="flex gap-3">
-              <span className="text-purple-500 mt-1">✦</span>
+              <Sparkles size={20} className="text-purple-500 mt-1 flex-shrink-0" />
               To expand Insane DanZe Company, opening new branches across India and offering aspiring artists world-class training in aerial acrobatics and performance arts.
             </li>
           </ul>

@@ -69,6 +69,18 @@ const Footer = () => {
                                 <p>Mumbai, Maharashtra</p>
                                 <p>India</p>
                             </div>
+
+                            <div className="w-full h-40 md:h-48 rounded-lg overflow-hidden border border-white/10 mt-6 grayscale-[0.5] hover:grayscale-0 transition-all duration-500">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.271636916271!2d91.7363991!3d26.1275103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5bca85241de3%3A0x6266989b8532df13!2sInsane%20Danze%20Company!5e1!3m2!1sen!2sin!4v1791399727114!5m2!1sen!2sin" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style={{ border: 0 }} 
+                                    allowFullScreen="" 
+                                    loading="lazy" 
+                                    referrerPolicy="strict-origin-when-cross-origin"
+                                />
+                            </div>
                         </div>
 
                         <div className="flex flex-col gap-2 pt-4">
@@ -137,12 +149,17 @@ const Footer = () => {
 
                 {/* Bottom Bar */}
                 <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-                    <p>
+                    <p className="flex-1 text-center md:text-left">
                         <a href="https://www.insaneduo.in" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                             www.insaneduo.in
                         </a>
                     </p>
-                    <div className="flex items-center gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+
+                    <p className="flex-1 text-center">
+                        Developed by <a href="https://dynamicphillic.vercel.app" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-white transition-colors font-medium">dynamicphillic.vercel.app</a>
+                    </p>
+
+                    <div className="flex-1 flex items-center justify-center md:justify-end gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
                         {/* Placeholder Logos text since we don't have the specific EU logo assets */}
                         <span className="font-bold border border-current px-2 py-1 rounded">INSANE DUO</span>
                         <span className="font-bold border border-current px-2 py-1 rounded">MINISTERO CULTURA</span>

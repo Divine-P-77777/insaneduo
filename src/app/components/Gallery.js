@@ -22,6 +22,10 @@ const Gallery = () => {
         { src: "/memories/m12.jpg", caption: "India's Got Talent" },
         { src: "/memories/m13.jpg", caption: "India's Got Talent S 11" },
 
+        { src: "/memories/m17.jpeg", caption: "Adani Cement Event" },
+        { src: "/memories/m18.jpeg", caption: "" },
+        { src: "/memories/m19.jpeg", caption: "" },
+
 
     ];
 
